@@ -22,7 +22,7 @@ const options = {
         description: "Development server",
       },
       {
-        url: "https://google-paystack-int.onrender.com",
+        url: "https://https://wallet-service-backend-ad03.onrender.com",
         description: "Production server",
       },
     ],
