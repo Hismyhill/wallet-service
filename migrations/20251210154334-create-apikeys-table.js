@@ -22,7 +22,7 @@ export async function up({ context: queryInterface }) {
       allowNull: false,
     },
     permissions: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
+      type: DataTypes.JSON,
       allowNull: false,
       defaultValue: [],
     },

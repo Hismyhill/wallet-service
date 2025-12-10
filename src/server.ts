@@ -37,7 +37,6 @@ const startServer = async () => {
     const keysRoutes = (await import("./routes/keys.routes.js")).default;
 
     app.use("/auth", authRoutes);
-
     app.use("/wallet", walletRoutes);
     app.use("/keys", keysRoutes);
 

@@ -154,4 +154,3 @@ export const requirePermission = (requiredPermissions: string[]) => {
     next();
   };
 };
-

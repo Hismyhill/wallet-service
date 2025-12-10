@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/db.config.js";
-import crypto from "crypto";
 
 const ApiKey = sequelize.define(
   "ApiKey",

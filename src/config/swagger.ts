@@ -9,8 +9,7 @@ const options = {
     info: {
       title: "User Authentication and Payment API",
       version: "1.0.0",
-      description:
-        "A REST API for user authentication via Google OAuth and payment processing with Paystack.",
+      description: "API for managing user wallets, transactions, and API keys.",
       contact: {
         name: "API Support",
         url: "https://github.com/Hismyhill", // Example contact URL
@@ -22,7 +21,7 @@ const options = {
         description: "Development server",
       },
       {
-        url: "https://wallet-service-hismyhill8300-5v4yvfzz.leapcell.dev/",
+        url: "https://wallet-service-hismyhill8300-5v4yvfzz.leapcell.dev",
         description: "Production server",
       },
     ],
@@ -33,11 +32,19 @@ const options = {
           scheme: "bearer",
           bearerFormat: "JWT",
         },
+        apiKeyAuth: {
+          type: "apiKey",
+          in: "header",
+          name: "x-api-key",
+        },
       },
     },
     security: [
       {
         bearerAuth: [],
+      },
+      {
+        apiKeyAuth: [],
       },
     ],
   },
