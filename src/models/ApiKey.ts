@@ -14,7 +14,7 @@ const ApiKey = sequelize.define(
       allowNull: false,
     },
     permissions: {
-      type: DataTypes.JSON,
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
       defaultValue: [],
     },

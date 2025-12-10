@@ -32,3 +32,4 @@ Wallet.belongsTo(User, { foreignKey: "userId", as: "user" });
 
 // ApiKey associations
 ApiKey.belongsTo(User, { foreignKey: "userId", as: "user" });
+export { User, Transaction, Wallet, ApiKey };

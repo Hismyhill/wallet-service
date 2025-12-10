@@ -21,7 +21,7 @@ export async function up({ context: queryInterface }) {
       allowNull: false,
     },
     permissions: {
-      type: DataTypes.JSON,
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
       defaultValue: [],
     },

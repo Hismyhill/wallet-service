@@ -1,5 +1,4 @@
 "use strict";
-import { ref } from "process";
 import { DataTypes } from "sequelize";
 
 /** @type {import('sequelize-cli').Migration} */
@@ -19,8 +18,8 @@ export async function up({ context: queryInterface }) {
     },
     type: {
       type: DataTypes.ENUM("deposit", "withdrawal", "transfer"),
-      unique: true,
       allowNull: false,
+      defaultValue: "deposit",
     },
     amount: {
       type: DataTypes.BIGINT,
@@ -28,7 +27,7 @@ export async function up({ context: queryInterface }) {
     },
 
     status: {
-      type: DataTypes.ENUM("pending", "success", "failed"),
+      type: DataTypes.STRING,
       allowNull: false,
       defaultValue: "pending",
     },
