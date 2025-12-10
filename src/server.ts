@@ -3,8 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import swaggerUi from "swagger-ui-express";
 import { specs } from "./config/swagger.js";
-import sequelize from "./config/db.config.js";
-import "./models/index.js"; // Import to initialize model associations
+import sequelize from "./config/db.config.js"; // This should be './config/db.config.js'
+import "./models/index.js"; // This correctly imports from src/models/index.ts after compilation
 
 dotenv.config();
 
