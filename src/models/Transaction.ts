@@ -8,7 +8,10 @@ const Transaction = sequelize.define("Transaction", {
     defaultValue: "deposit",
   },
   amount: DataTypes.BIGINT,
-  status: { type: DataTypes.STRING, defaultValue: "pending" },
+  status: {
+    type: DataTypes.ENUM("pending", "success", "failed"),
+    defaultValue: "pending",
+  },
   paid_at: DataTypes.DATE,
   authorization_url: { type: DataTypes.STRING(512) }, // Store the payment URL
   userId: {

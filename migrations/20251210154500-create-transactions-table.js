@@ -17,7 +17,7 @@ export async function up({ context: queryInterface }) {
       allowNull: false,
     },
     type: {
-      type: DataTypes.ENUM("deposit", "withdrawal", "transfer"),
+      type: DataTypes.STRING,
       allowNull: false,
       defaultValue: "deposit",
     },
