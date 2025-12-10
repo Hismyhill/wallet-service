@@ -22,7 +22,7 @@ const options = {
         description: "Development server",
       },
       {
-        url: "https://https://wallet-service-backend-ad03.onrender.com",
+        url: "https://wallet-service-hismyhill8300-5v4yvfzz.leapcell.dev/",
         description: "Production server",
       },
     ],

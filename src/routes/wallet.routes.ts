@@ -135,7 +135,7 @@ router.post(
  * /wallet/paystack/webhook:
  *   post:
  *     summary: Paystack webhook handler
- *     tags: [Payments]
+ *     tags: [Wallet]
  *     description: >
  *       Listens for events from Paystack, such as `charge.success`.
  *       It verifies the event's authenticity using the `x-paystack-signature` header.
@@ -378,10 +378,10 @@ router.post(
 
 /**
  * @swagger
- * /payments/paystack/{reference}/status:
+ * /wallet/paystack/{reference}/status:
  *   get:
  *     summary: Get payment status
- *     tags: [Payments]
+ *     tags: [Wallet]
  *     description: >
  *       Retrieves the status of a transaction from the local database.
  *       It also re-verifies the transaction with Paystack to get the latest status and updates the local record before returning the result.
@@ -415,7 +415,7 @@ router.post(
  *       500:
  *         description: Internal Server Error - Failed to verify transaction with Paystack.
  */
-router.get("/:reference/status", async (req, res) => {
+router.get("/paystack/:reference/status", async (req, res) => {
   const { reference } = req.params;
 
   const tx: any = await Transaction.findOne({ where: { reference } });
