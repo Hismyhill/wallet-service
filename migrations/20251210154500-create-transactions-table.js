@@ -1,4 +1,5 @@
 "use strict";
+import { ref } from "process";
 import { DataTypes } from "sequelize";
 
 /** @type {import('sequelize-cli').Migration} */
@@ -11,37 +12,42 @@ export async function up({ context: queryInterface }) {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
+    reference: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false,
+    },
+    type: {
+      type: DataTypes.ENUM("deposit", "withdrawal", "transfer"),
+      unique: true,
+      allowNull: false,
+    },
     amount: {
       type: DataTypes.BIGINT,
       allowNull: false,
     },
-    type: {
-      type: DataTypes.ENUM("credit", "debit", "transfer"),
-      allowNull: false,
-    },
+
     status: {
-      type: DataTypes.ENUM("pending", "completed", "failed"),
+      type: DataTypes.ENUM("pending", "success", "failed"),
       allowNull: false,
       defaultValue: "pending",
     },
-    description: {
-      type: DataTypes.STRING,
-    },
-    walletId: {
+    paid_at: DataTypes.DATE,
+    authorization_url: { type: DataTypes.STRING(512) },
+    userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "Wallets",
+        model: "Users", // This is the table name
         key: "id",
       },
       onUpdate: "CASCADE",
       onDelete: "SET NULL",
     },
-    recipientWalletId: {
+    recipient_id: {
       type: DataTypes.INTEGER,
-      allowNull: true, // Only for transfers
       references: {
-        model: "Wallets",
+        model: "Users",
         key: "id",
       },
       onUpdate: "CASCADE",

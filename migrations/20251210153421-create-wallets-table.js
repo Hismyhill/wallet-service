@@ -15,6 +15,7 @@ export async function up({ context: queryInterface }) {
       type: DataTypes.STRING,
       unique: true,
       allowNull: false,
+      defaultValue: () => Math.random().toString(36).substring(2, 15),
     },
     balance: {
       type: DataTypes.BIGINT,

@@ -1,4 +1,5 @@
 "use strict";
+import { permission } from "process";
 import { DataTypes } from "sequelize";
 
 /** @type {import('sequelize-cli').Migration} */
@@ -15,6 +16,23 @@ export async function up({ context: queryInterface }) {
       type: DataTypes.STRING,
       unique: true,
       allowNull: false,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    permissions: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: false,
+      defaultValue: [],
+    },
+    expires_at: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    revoked: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
     userId: {
       type: DataTypes.INTEGER,
